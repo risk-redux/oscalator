@@ -1,0 +1,7 @@
+{
+  "name": "oscalator",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "rails-app",
+  "workspaceFolder": "/oscalator",
+  "postCreateCommand": "/oscalator/bin/setup"
+}
