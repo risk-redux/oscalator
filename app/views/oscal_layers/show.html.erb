@@ -1,0 +1,20 @@
+<%- view_title "OSCAL Layer - #{ @oscal_layer.title }" %>
+
+<% content_for :main do %>
+<div class="row">
+  <div class="col-12">
+    <h1><%= @oscal_layer.title %></h1>
+
+    <%= oscal_layers_form(true) %>
+
+    <p class="text-end">
+      <%= link_to edit_oscal_layer_path(@oscal_layer), { class: "link-underline link-underline-opacity-0" } do %>
+      <i class="fa-solid fa-pencil fa-fw"></i> Edit
+      <% end %>
+    </p>
+
+
+    <h2>OSCAL Models</h2>
+  </div>
+</div>
+<% end %>

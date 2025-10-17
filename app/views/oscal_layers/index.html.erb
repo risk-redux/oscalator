@@ -1,0 +1,44 @@
+<%- view_title "OSCAL Layers" %>
+
+<% content_for :main do %>
+<div class="row">
+  <div class="col-12">
+    <h1>OSCAL Layers 
+      <span class="badge rounded-pill text-bg-info"><%= @oscal_layers.count %></span>
+    </h1>
+
+    <p class="text-end">
+      <%= link_to new_oscal_layer_path, { class: "link-underline link-underline-opacity-0" } do %>
+      <i class="fa-solid fa-square-plus fa-fw"></i> New
+      <% end %>
+    </p>
+
+    <table class="table table-sm table-striped">
+      <thead>
+        <tr>
+          <th scope="col">title</th>
+          <th scope="col">models</th>
+          <th scope="col" class="text-end">actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @oscal_layers.each do |l| %>
+        <tr>
+          <td>
+            <%= link_to oscal_layer_path(l.id), { class: "link-underline link-underline-opacity-0" } do %>
+            <i class="fa-solid fa-eye fa-fw"></i> <%= l.title %>
+            <% end %>
+          </td>
+          <td><%= l.oscal_models.count %></td>
+          <td class="text-end">
+            <%= button_to oscal_layer_path(l.id), { method: :delete, class: "btn btn-sm btn-outline-danger", data: { turbo_confirm: "Are you sure?" } } do %>
+            <i class="fa-solid fa-trash-xmark fa-fw"></i> Delete
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,20 @@
+<%= form_with model: @oscal_layer do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, { class: "form-label" } %>
+    <%= form.text_field :title, { class: "form-control", disabled: disabled } %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, { class: "form-label" } %>
+    <%= form.textarea :description, { class: "form-control", disabled: disabled, placeholder: @oscal_layer.description, rows: "10" } %>
+  </div>
+
+  <% unless disabled %>
+  <div>
+    <%= form.submit "Submit", { class: "btn btn-primary" } %>
+    <%= link_to oscal_layers_path do %>
+    <i class="fa-solid fa-backward-step"></i> Cancel
+    <% end %>
+  </div>
+  <% end %>
+<% end %>
